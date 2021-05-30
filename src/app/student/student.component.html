@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div id="student-left" class="col-6 h3">
+      Student
+    </div>
+    <div id="student-right" class="col-6">
+      <form class="form-group" [formGroup]="studentForm">
+        <div id="dropdown">
+          <select formControlName="students" class="text-center" id="studentDropdown">
+            <option value="" disabled>Students</option>
+            <option *ngFor="let student of studentListLocal" [ngValue]="student">{{ student }}</option>
+          </select>
+        </div>
+
+        <input type="button" id="newStudentButton" (click)="onNewStudent()" value="Add new student">
+
+        <div id="newStudent" *ngIf="isActiveInput()" class="d-flex align-items-center justify-content-between">
+          <input id="newStudentInput" formControlName="newStudent" class="form-control" type="text" placeholder="new student">
+          <i class="far fa-lg fa-check-circle" (click)="onTick()"></i>
+          <i class="fas fa-lg fa-times" (click)="onCross()"></i>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

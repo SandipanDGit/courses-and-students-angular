@@ -1,0 +1,26 @@
+.header{
+  background-color: red;
+  color: white;
+  min-height: 70px;
+  box-shadow: 1px 1px 4px grey;
+  display: flex;
+  align-items: center;
+}
+.container{
+  margin-top: 20px;
+  height: 80vh;
+  border: 1px solid lightgrey;
+}
+.title{
+  border-bottom: 1px solid;
+  padding: 5px 15px 5px 15px;
+}
+.row{
+  height: 50%;
+}
+#app-form, #app-activity{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}

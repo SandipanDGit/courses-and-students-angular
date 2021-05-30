@@ -1,0 +1,28 @@
+<div id="courseWrapper" class="container-fluid">
+  <div class="row">
+    <div id="course-left" class="col-6 h3">
+      Course
+    </div>
+    <div id="course-right" class="col-6">
+      <form class="form-group" [formGroup]='myform'>
+        <div id="dropdown">
+
+          <select id="courseDropdown" formControlName="courses" (change)="onCourseChange()">
+            <option value="" disabled>Your courses</option>
+            <option *ngFor="let course of data.keys()" [ngValue]="course">
+              {{ course }}
+            </option>
+          </select>
+        </div>
+        <button id="newCourseButton" class="btn btn-secondary" (click)="onAdd()">Add new course</button>
+
+        <div id="new-course" *ngIf="isActiveInput()" class="d-flex align-items-center justify-content-between">
+          <input id="newCourse" formControlName="newCourse" class="form-control" type="text" placeholder="new course">
+          <i class="far fa-lg fa-check-circle" (click)="onTick()"></i>
+          <i class="fas fa-lg fa-times" (click)="onCross()"></i>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

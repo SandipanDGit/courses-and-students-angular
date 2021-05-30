@@ -1,0 +1,47 @@
+.form-control{
+  margin: 10px 0px 10px 0px;
+}
+#student-left, #student-right{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#dropdown{
+  margin: 10px 0 10px 0;
+}
+.form-control{
+  margin: 10px 0px 10px 0px;
+}
+#newStudentButton{
+  height: 35px;
+  width: 250px;
+  background-color: rgb(48, 139, 224);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+}
+#newStudent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#newStudentInput{
+  width: 180px;
+}
+
+#studentDropdown{
+  height: 35px;
+  border-radius: 3px;
+  width: 250px;
+}
+select{
+  width: 180px;
+}
+button, select{
+  background-color: rgb(48, 139, 224);
+  border: none;
+  color: white;
+  font-weight: bold;
+}
