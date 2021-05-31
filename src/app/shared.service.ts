@@ -14,5 +14,9 @@ export class ControllerService {
   newStudent = new BehaviorSubject<string>('')
   getNewStudent = this.newStudent.asObservable()
 
+  //send course selection status
+  courseSelected = new BehaviorSubject<boolean>(false)
+  getCourseSelected = this.courseSelected.asObservable()
+
   constructor() { }
 }

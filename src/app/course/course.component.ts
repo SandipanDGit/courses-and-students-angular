@@ -47,8 +47,18 @@ export class CourseComponent implements OnInit {
     //change active course
     this.activeCourse = this.myform.value.courses
 
-    //send the student list corresponding to new active course into subject
-    this.controller.studentList.next(this.data.get(this.activeCourse) || [])
+
+    if(this.myform.value.courses !== ''){
+      //send course selection status
+      this.controller.courseSelected.next(true)
+
+      //send the student list corresponding to new active course into subject
+      this.controller.studentList.next(this.data.get(this.activeCourse) || [])
+    }else{
+      //send course selection status
+      this.controller.courseSelected.next(false)
+
+    }
   }
   onAdd(){
     this.activeInput = !this.activeInput

@@ -14,6 +14,7 @@ export class StudentComponent implements OnInit {
     private controller: ControllerService,) {}
 
   //---------------VARIABLE DECLARATIONS---------------
+  courseSelected: boolean = false
   activeInput: boolean = false
   newStudentLocal: string = ''
   studentListLocal: string[] = ['']
@@ -29,6 +30,16 @@ export class StudentComponent implements OnInit {
         this.studentListLocal = data
       }
     })
+
+    //get notified if course is selected or not
+    this.controller.getCourseSelected.subscribe(flag => {
+      this.courseSelected = flag
+
+      //reset the input box if course deselected
+      if(!this.courseSelected){
+        this.studentListLocal = []
+      }
+    })
   }
 
   //----------------METHODS-------------------
@@ -40,12 +51,9 @@ export class StudentComponent implements OnInit {
   }
 
   onTick(){
-    if(this.studentForm.value.newStudent.trim() !== ''){
-      //push to local array that controls the student dropdown
-      this.studentListLocal.push(this.studentForm.value.newStudent)
-
-      //send in subject
-      this.controller.newStudent.next(this.newStudentLocal)
+    //if course was selected and non empty name provided, send new name into subject
+    if(this.studentForm.value.newStudent.trim() !== '' && this.courseSelected){
+      this.controller.newStudent.next(this.studentForm.value.newStudent)
     }
 
     //reset the input box
@@ -53,10 +61,14 @@ export class StudentComponent implements OnInit {
       newStudent: ''
     })
 
+    //toggle the visibility of input box
     this.activeInput = !this.activeInput
   }
   onCross(){
     this.activeInput = !this.activeInput
+    this.studentForm.patchValue({
+      newStudent: ''
+    })
     console.log("crossed")
   }
 

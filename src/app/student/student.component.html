@@ -7,12 +7,12 @@
       <form class="form-group" [formGroup]="studentForm">
         <div id="dropdown">
           <select formControlName="students" class="text-center" id="studentDropdown">
-            <option value="" disabled>Students</option>
-            <option *ngFor="let student of studentListLocal" [ngValue]="student">{{ student }}</option>
+            <option value="">Students</option>
+            <option *ngFor="let student of studentListLocal" [ngValue]="student" disabled>{{ student }}</option>
           </select>
         </div>
 
-        <input type="button" id="newStudentButton" (click)="onNewStudent()" value="Add new student">
+        <input *ngIf="courseSelected" type="button" id="newStudentButton" (click)="onNewStudent()" value="Add new student">
 
         <div id="newStudent" *ngIf="isActiveInput()" class="d-flex align-items-center justify-content-between">
           <input id="newStudentInput" formControlName="newStudent" class="form-control" type="text" placeholder="new student">

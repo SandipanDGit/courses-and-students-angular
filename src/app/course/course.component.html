@@ -8,8 +8,8 @@
         <div id="dropdown">
 
           <select id="courseDropdown" formControlName="courses" (change)="onCourseChange()">
-            <option value="" disabled>Your courses</option>
-            <option *ngFor="let course of data.keys()" [ngValue]="course">
+            <option value="" selected="selected">Select course</option>
+            <option *ngFor="let course of data.keys()" [ngValue]="course" class="text-center">
               {{ course }}
             </option>
           </select>

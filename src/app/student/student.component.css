@@ -39,6 +39,9 @@
 select{
   width: 180px;
 }
+option{
+  background-color: black;
+}
 button, select{
   background-color: rgb(48, 139, 224);
   border: none;
